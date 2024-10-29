@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import TaskCard from "./taskCard";
 
 const TodoBody = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,11 +23,7 @@ const TodoBody = () => {
             "No Task"
           ) : (
             <div>
-              <ul className="list-decimal px-4 capitalize">
-                {tasks.map((task) => ( 
-                  <li key={task.id}>{task.text}</li> 
-                ))}
-              </ul>
+              
             </div>
           )}
         </>
