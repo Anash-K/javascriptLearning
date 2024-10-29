@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import TaskCard from "./taskCard";
 
-const TodoBody = () => {
+const TodoBody = ({handleEdit}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isTaskAvl, setIsTaskAvl] = useState(false);
 
@@ -23,7 +23,7 @@ const TodoBody = () => {
             "No Task"
           ) : (
             <div>
-              
+              <TaskCard tasks={tasks} handleEdit={handleEdit}/>
             </div>
           )}
         </>

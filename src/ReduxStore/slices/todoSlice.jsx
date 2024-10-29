@@ -7,15 +7,18 @@ const TaskSlice = createSlice({
   },
   reducers: {
     addTask: (state, action) => {
-        state.tasks.push(action.payload);
-        // state.tasks = []
-    },    
+      state.tasks.push(action.payload);
+    },
     deleteTask: (state, action) => {
-        const {id} = action.payload;
-        state.tasks = state.tasks.filter((task) => task.id !== id);
+      const id = action.payload;
+      state.tasks = state.tasks.filter((task) => task.id !== id);
     },
     editTask: (state, action) => {
-      console.log(action.payload);
+      const { id, text } = action.payload;
+      const taskToEdit = state.tasks.find((task) => task.id === id);
+      if (taskToEdit) {
+        taskToEdit.text = text;
+      }
     },
   },
 });
